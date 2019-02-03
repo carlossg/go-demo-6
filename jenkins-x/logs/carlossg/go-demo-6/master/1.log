@@ -1,20 +1,20 @@
 Step: build-step-credential-initializer:
 
-{"level":"warn","ts":1549194474.8179297,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1549194474.8191779,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+{"level":"warn","ts":1549194263.557169,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1549194263.5578642,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 Step: build-step-git-source-0:
 
-{"level":"warn","ts":1549194476.873503,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1549194477.7904966,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/carlossg/go-demo-6.git\" @ \"master\" in path \"/workspace\""}
+{"level":"warn","ts":1549194265.4361002,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1549194266.2715394,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/carlossg/go-demo-6.git\" @ \"master\" in path \"/workspace\""}
 Step: build-step-jenkins:
 
 Picked up _JAVA_OPTIONS: -Xmx400m
 Started
 Running in Durability level: PERFORMANCE_OPTIMIZED
-  25.984 [id=24]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+  28.386 [id=26]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
 [Pipeline] node
-Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins1868617736204556525test/workspace/job
-  41.094 [id=76]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins8535817409375672890test/workspace/job
+  43.200 [id=49]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
 org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
 	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
 	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
@@ -32,14 +32,14 @@ org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstruc
 	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
 	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
 	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
-	at sun.reflect.GeneratedMethodAccessor161.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor159.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
 	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
 	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
 	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
-	at sun.reflect.GeneratedMethodAccessor165.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor163.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
@@ -112,46 +112,45 @@ Commit message: "Draft create"
 First time build. Skipping changelog.
 [Pipeline] sh
 + jx-release-version
-+ echo 0.0.127
++ echo 0.0.126
 [Pipeline] sh
 + cat VERSION
-+ jx step tag --version 0.0.127
-Tag v0.0.127 created and pushed to remote origin
++ jx step tag --version 0.0.126
+Tag v0.0.126 created and pushed to remote origin
 [Pipeline] sh
 + make build
 CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-demo-6 main.go
 [Pipeline] sh
 + cat VERSION
-+ export VERSION=0.0.127
++ export VERSION=0.0.126
 + skaffold build -f skaffold.yaml
 Starting build...
 Building [changeme]...
-Sending build context to Docker daemon  525.8kBSending build context to Docker daemon  8.882MBSending build context to Docker daemon  11.43MB
+Sending build context to Docker daemon  525.8kBSending build context to Docker daemon   7.21MBSending build context to Docker daemon  11.43MB
 Step 1/4 : FROM scratch
  ---> 
 Step 2/4 : EXPOSE 8080
- ---> Using cache
+ ---> Running in d0c33155e56c
  ---> 43f1677e956e
 Step 3/4 : ENTRYPOINT /go-demo-6
- ---> Using cache
+ ---> Running in d1a77123cd51
  ---> 64370c157d94
 Step 4/4 : COPY ./bin/ /
- ---> Using cache
  ---> a387aa982b1c
 Successfully built a387aa982b1c
 The push refers to a repository [10.31.252.9:5000/carlossg/go-demo-6]
 a014bba3ab81: Preparing
-a014bba3ab81: Layer already exists
-0.0.127: digest: sha256:ce1f2878a8fe53bc9c4fd771763b46138d706c6d62edc5a9cf4b3d8ef4bc1bd5 size: 528
-Build complete in 335.222333ms
+a014bba3ab81: Pushed
+0.0.126: digest: sha256:ce1f2878a8fe53bc9c4fd771763b46138d706c6d62edc5a9cf4b3d8ef4bc1bd5 size: 528
+Build complete in 2.907796927s
 Starting test...
-Test complete in 4.742µs
-changeme -> 10.31.252.9:5000/carlossg/go-demo-6:0.0.127
+Test complete in 5.36µs
+changeme -> 10.31.252.9:5000/carlossg/go-demo-6:0.0.126
 There is a new version (0.22.0) of skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
 
 [Pipeline] sh
 + cat VERSION
-+ jx step post build --image 10.31.252.9:5000/carlossg/go-demo-6:0.0.127
++ jx step post build --image 10.31.252.9:5000/carlossg/go-demo-6:0.0.126
 [Pipeline] }
 [Pipeline] // dir
 [Pipeline] }
@@ -163,40 +162,29 @@ Running in /home/jenkins/go/src/github.com/carlossg/go-demo-6/charts/go-demo-6
 [Pipeline] {
 [Pipeline] sh
 + cat ../../VERSION
-+ jx step changelog --version v0.0.127
++ jx step changelog --version v0.0.126
 Using batch mode as inside a pipeline
-Generating change log from git ref 2d6105de937a6a31872175412997985de7d16837 => c51470d1d56f32a3b4eac1bdb0c27aa5e14f653b
+Generating change log from git ref 2d6105de937a6a31872175412997985de7d16837 => 4c75dcb0dbbae1eb2f5f65fc5e3ebbd85d7f8b29
 Unable to find user: jenkins-x.googlegroups.com -- users.jenkins.io "jenkins-x.googlegroups.com" not found
 Unable to find user: jenkins-x.googlegroups.com -- users.jenkins.io "jenkins-x.googlegroups.com" not found
 Finding issues in commit messages using git format
-No release found for carlossg/go-demo-6 and tag v0.0.127 so creating a new release
-Updated the release information at https://github.com/carlossg/go-demo-6/releases/tag/v0.0.127
+No release found for carlossg/go-demo-6 and tag v0.0.126 so creating a new release
+Updated the release information at https://github.com/carlossg/go-demo-6/releases/tag/v0.0.126
 generated: /home/jenkins/go/src/github.com/carlossg/go-demo-6/charts/go-demo-6/templates/release.yaml
-Created Release go-demo-6-0-0-127 resource in namespace jx
-Updating PipelineActivity carlossg-go-demo-6-master-1 with version 0.0.127
-Updated PipelineActivities carlossg-go-demo-6-master-1 with release notes URL: https://github.com/carlossg/go-demo-6/releases/tag/v0.0.127
+Created Release go-demo-6-0-0-126 resource in namespace jx
+Updating PipelineActivity carlossg-go-demo-6-master-1 with version 0.0.126
+Updated PipelineActivities carlossg-go-demo-6-master-1 with release notes URL: https://github.com/carlossg/go-demo-6/releases/tag/v0.0.126
 [Pipeline] sh
 + jx step helm release
 No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
-Successfully added Helm repository jenkins-x.
 Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
 Successfully added Helm repository releases.
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
 No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Uploading chart file go-demo-6-0.0.127.tgz to http://jenkins-x-chartmuseum:8080/api/charts
-Received 201 response: {"saved":true}
-[Pipeline] sh
-+ cat ../../VERSION
-+ jx promote -b --all-auto --timeout 1h --version 0.0.127
-prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/jx/issues/2410
-Promoting app go-demo-6 version 0.0.127 to namespace jx-staging
-Could not find Jenkins URL: services "jenkins" not found in namespace jx
-Created Pull Request: https://github.com/carlossg-org/environment-warlocksunset-staging/pull/9
-
-Could not find Jenkins URL: services "jenkins" not found in namespace jx
-Pull Request https://github.com/carlossg-org/environment-warlocksunset-staging/pull/9 is merged at sha 5a46a0da465b110441575e9612237c7701918fe8
-Pull Request merged but we are not waiting for the update pipeline to complete!
-Could not find the service URL in namespace jx-staging for names go-demo-6, jx-go-demo-6, jx-staging-go-demo-6
+Uploading chart file go-demo-6-0.0.126.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 401 response: {"error":"unauthorized"}
+error: Failed to post chart to http://jenkins-x-chartmuseum:8080/api/charts due to response 401: {"error":"unauthorized"}
 [Pipeline] }
 [Pipeline] // dir
 [Pipeline] }
@@ -208,4 +196,5 @@ Could not find the service URL in namespace jx-staging for names go-demo-6, jx-g
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] End of Pipeline
-Finished: SUCCESS
+ERROR: script returned exit code 1
+Finished: FAILURE

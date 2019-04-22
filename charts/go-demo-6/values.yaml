@@ -39,7 +39,7 @@ go-demo-6-db:
 
   usePassword: false
 canary:
-  enable: false # canary
+  enable: true
   service:
     hosts:
     - go-demo-6.istio.example.com

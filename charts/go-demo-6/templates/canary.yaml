@@ -1,16 +1,16 @@
-{{- if eq .Release.Namespace jx-production }}
+{{- if eq .Release.Namespace "jx-production" }}
 {{- if .Values.canary.enable }}
 apiVersion: flagger.app/v1alpha2
 kind: Canary
 metadata:
   # canary name must match deployment name
-  name: {{ template fullname . }}
+  name: {{ template "fullname" . }}
 spec:
   # deployment reference
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ template fullname . }}
+    name: {{ template "fullname" . }}
   progressDeadlineSeconds: 60
   service:
     # container port

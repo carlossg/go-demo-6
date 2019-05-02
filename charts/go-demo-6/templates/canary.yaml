@@ -1,3 +1,4 @@
+{{- if .Values.global.canary }}
 {{- if .Values.global.canary.enable }}
 apiVersion: flagger.app/v1alpha2
 kind: Canary
@@ -38,5 +39,6 @@ spec:
 {{- if .Values.canary.canaryAnalysis.metrics }}
     metrics:
 {{ toYaml .Values.canary.canaryAnalysis.metrics | indent 4 }}
+{{- end }}
 {{- end }}
 {{- end }}

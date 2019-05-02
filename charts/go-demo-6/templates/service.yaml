@@ -8,9 +8,11 @@ metadata:
 {{- end }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-{{- if .Values.service.annotations }}
+{{- if .Values.service.annotations || .Values.global.service.annotations }}
   annotations:
 {{ toYaml .Values.service.annotations | indent 4 }}
+{{- end }}
+{{ toYaml .Values.global.service.annotations | indent 4 }}
 {{- end }}
 spec:
   type: {{ .Values.service.type }}

@@ -1,5 +1,4 @@
-{{- if eq .Release.Namespace "jx-production" }}
-{{- if .Values.canary.enable }}
+{{- if .Values.global.canary.enable }}
 apiVersion: flagger.app/v1alpha2
 kind: Canary
 metadata:
@@ -20,10 +19,10 @@ spec:
     gateways:
 {{ toYaml .Values.canary.service.gateways | indent 4 }}
 {{- end }}
-{{- if .Values.canary.service.hosts }}
+{{- if .Values.global.canary.service.hosts }}
     # Istio virtual service host names (optional)
     hosts:
-{{ toYaml .Values.canary.service.hosts | indent 4 }}
+{{ toYaml .Values.global.canary.service.hosts | indent 4 }}
 {{- end }}
   canaryAnalysis:
     # schedule interval (default 60s)
@@ -39,6 +38,5 @@ spec:
 {{- if .Values.canary.canaryAnalysis.metrics }}
     metrics:
 {{ toYaml .Values.canary.canaryAnalysis.metrics | indent 4 }}
-{{- end }}
 {{- end }}
 {{- end }}

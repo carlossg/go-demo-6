@@ -8,10 +8,16 @@ metadata:
 {{- end }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-{{- if .Values.service.annotations || .Values.global.service.annotations }}
   annotations:
+{{- if .Values.global.canary }}
+    fabric8.io/expose: "{{ not .Values.global.canary.enable }}"
+{{- else }}
+    fabric8.io/expose: "true"
+{{- end }}
+{{- if .Values.service }}
 {{ toYaml .Values.service.annotations | indent 4 }}
 {{- end }}
+{{- if .Values.global.service }}
 {{ toYaml .Values.global.service.annotations | indent 4 }}
 {{- end }}
 spec:

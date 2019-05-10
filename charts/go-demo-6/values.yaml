@@ -49,7 +49,7 @@ canary:
     gateways:
     - jx-gateway.istio-system.svc.cluster.local
   canaryAnalysis:
-    interval: 10s
+    interval: 30s
     threshold: 5
     maxWeight: 50
     stepWeight: 10

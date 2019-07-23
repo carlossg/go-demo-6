@@ -43,7 +43,7 @@ canary:
   enable: true
   service:
     hosts:
-    - go-demo-6..nip.io
+    - go-demo-6.istio.us.g.csanchez.org
     gateways:
     - jx-gateway.istio-system.svc.cluster.local
   canaryAnalysis:
